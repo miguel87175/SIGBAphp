@@ -131,12 +131,12 @@ loginForm.addEventListener("submit", (e) => {
             setTimeout(() => {
     // El admin va al dashboard, los demás a la página normal
     if (encontrado.usuario === "admin" || encontrado.email === "admin@test.com") {
-        window.location.href = "../dashboard.html";
+        window.location.href = "/panel-administrador";
     } else {
         if (sesion.usuario === "admin" || sesion.email === "admin@test.com") {
-    window.location.href = "../dashboard.html";
+    window.location.href = "/panel-administrador";
 } else {
-    window.location.href = "../pagina.html";
+    window.location.href = "/Pagina-principal";
 }
     }
 }, 900);
@@ -162,6 +162,6 @@ window.addEventListener("DOMContentLoaded", () => {
             sessionStorage.removeItem("sesionActiva");
             return;
         }
-        window.location.href = "/inisio/pagina.html";
+        window.location.href = "/Pagina-principal";
     }
 });

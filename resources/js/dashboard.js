@@ -279,7 +279,7 @@ if (btnCerrarSesion) {
     btnCerrarSesion.addEventListener("click", () => {
         localStorage.removeItem("sesionActiva");
         sessionStorage.removeItem("sesionActiva");
-        window.location.href = "LandingPage/login.html";
+        window.location.href = "/login";
     });
 }
 

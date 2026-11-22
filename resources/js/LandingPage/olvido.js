@@ -231,6 +231,6 @@ resetForm.addEventListener("submit", (e) => {
 
     setTimeout(() => {
         resetForm.reset();
-        window.location.href = "login.html";
+        window.location.href = "/login";
     }, 1500);
 });

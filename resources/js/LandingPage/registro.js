@@ -450,6 +450,6 @@ registroForm.addEventListener("submit", (e) => {
     setTimeout(() => {
         registroForm.reset();
         campoAcudiente.hidden = true;
-        window.location.href = "login.html";
+        window.location.href = "/login";
     }, 1500);
 });

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Panel de administración del sistema">
     <title>Dashboard Administrador | Sistema</title>
-    @vite('resources/css/dashboard.css')
+    @vite(['resources/css/dashboard.css', 'resources/js/dashboard.js'])
 </head>
 
 <body>

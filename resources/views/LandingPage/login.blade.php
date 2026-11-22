@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Inicio de sesión del sistema de autenticación">
     <title>Iniciar Sesión</title>
-    @vite('resources/css/LandingPage/login.css')
+    @vite(['resources/css/LandingPage/login.css', 'resources/js/LandingPage/login.js'])
 </head>
 
-<body>
+<body style="background-image: url('{{ asset('img/FotoCSF.jpg') }}'); ...">
 
     <main class="login-container">
 
-        <form class="form" id="loginForm" action="pagina.html" method="post">
+        <form class="form" id="loginForm" action="{{ route('login') }}" method="post">
 
             <h2>Iniciar Sesión</h2>
 
@@ -67,7 +67,7 @@
                 <label class="recordarme">
                     <input type="checkbox" id="recordarme" name="recordarme"> Recordarme
                 </label>
-                <a href="olvido.html">¿Olvidaste tu contraseña?</a>
+                <a href="{{ route('olvido-contraseña') }}">¿Olvidaste tu contraseña?</a>
             </div>
 
             <button type="submit" class="btn">Entrar</button>
@@ -76,12 +76,10 @@
 
             <p class="cambio-form">
                 ¿No tienes cuenta?
-                <a href="registro.html">Regístrate aquí</a>
+                <a href="{{ route('registro') }}">Regístrate aquí</a>
             </p>
         </form>
     </main>
-
-    <script src="login.js"></script>
 </body>
 
 </html>

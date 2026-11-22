@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Registro de nuevos usuarios en el sistema">
     <title>Crear Cuenta</title>
-    @vite('resources/css/LandingPage/registro.css')
+    @vite(['resources/css/LandingPage/registro.css', 'resources/js/LandingPage/registro.js'])
 </head>
 
-<body>
+<body style="background-image: url('{{ asset('img/FotoCSF.jpg') }}'); ...">
 
     <main class="login-container">
 
@@ -177,7 +177,7 @@
 
             <p class="cambio-form">
                 ¿Ya tienes cuenta?
-                <a href="login.html">Inicia sesión</a>
+                <a href="{{ route('login') }}">Inicia sesión</a>
             </p>
         </form>
     </main>

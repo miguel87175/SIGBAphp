@@ -7,12 +7,12 @@
 }
 
 body {
-    background-image: url('/IMG/images_2.jpg');
+    background-image: url('../../img/FotoCSF.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-color: #333;
+    background-color: #9ac66d;
 
     min-height: 100vh;
     display: flex;

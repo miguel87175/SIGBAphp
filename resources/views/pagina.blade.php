@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIGBA - Panel</title>
-    @vite('resources/css/pagina.css')
+    @vite(['resources/css/pagina.css', 'resources/js/pagina.js'])
 </head>
 <body>
 
     <!-- ==================== HEADER ==================== -->
     <header class="bandeja">
         <div class="header-izquierda">
-            <img src="../IMG/Logo [Recuperado].png" alt="Logo SIGBA" class="logo-sigba">
+            <img src="{{ asset('img/logoSIGBA.png') }}" alt="Logo SIGBA" class="logo-sigba">
             <h2 class="sigba" id="nombreUsuario">SIGBA</h2>
         </div>
 
@@ -25,16 +25,16 @@
         </nav>
 
         <div class="header-derecha">
-            <img src="../IMG/Logosimbolo_SENA_2022.svg.webp" alt="Logo SENA" class="logo-sena">
+            <img src="{{ asset('img/Logosimbolo_SENA_2022.svg.webp') }}" alt="Logo SENA" class="logo-sena">
         </div>
     </header>
 
     <!-- ==================== CARRUSEL (solo aprendiz) ==================== -->
     <section class="carrusel-fullwidth solo-aprendiz" id="carruselSection">
         <div class="carrusel" id="carrusel">
-            <div class="carrusel-item"><img src="../IMG/foto_1.jpg" alt="Imagen 1"></div>
-            <div class="carrusel-item"><img src="../IMG/foto_2.jpg" alt="Imagen 2"></div>
-            <div class="carrusel-item"><img src="../IMG/foto_3.png" alt="Imagen 3"></div>
+            <div class="carrusel-item"><img src="{{ asset('img/foto_1.jpg') }}" alt="Imagen 1"></div>
+            <div class="carrusel-item"><img src="{{ asset('img/foto_2.jpg') }}" alt="Imagen 2"></div>
+            <div class="carrusel-item"><img src="{{ asset('img/foto_3.png') }}" alt="Imagen 3"></div>
         </div>
         <button class="btn-carrusel atras" id="atras">&#10094;</button>
         <button class="btn-carrusel adelante" id="adelante">&#10095;</button>
@@ -197,6 +197,5 @@
         <p><em>Este es un sistema en desarrollo (Proyecto SIGBA - 2026).</em></p>
     </footer>
 
-    <script src="pagina.js"></script>
 </body>
 </html>

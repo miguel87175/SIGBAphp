@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recuperar Contraseña</title>
-    @vite('resources/css/LandingPage/olvido.css')
+    @vite(['resources/css/LandingPage/olvido.css', 'resources/js/LandingPage/olvido.js'])
 </head>
 
-<body>
+<body style="background-image: url('{{ asset('img/FotoCSF.jpg') }}'); ...">
 
     <div class="login-container">
 
@@ -32,7 +32,7 @@
             <p class="mensaje" id="mensajeOlvido"></p>
 
             <p class="cambio-form">
-                <a href="login.html">← Volver al inicio de sesión</a>
+                <a href="{{ route('login') }}">← Volver al inicio de sesión</a>
             </p>
         </form>
 
@@ -70,13 +70,11 @@
             <p class="mensaje" id="mensajeReset"></p>
 
             <p class="cambio-form">
-                <a href="login.html">← Volver al inicio de sesión</a>
+                <a href="{{ route('login') }}">← Volver al inicio de sesión</a>
             </p>
         </form>
 
     </div>
-
-    <script src="olvido.js"></script>
 </body>
 
 </html>

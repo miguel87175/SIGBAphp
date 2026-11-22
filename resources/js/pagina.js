@@ -8,14 +8,14 @@ try {
 }
 
 if (!sesion) {
-    window.location.href = "LandingPage/login.html";
+    window.location.href = "/login";
 }
 
 const OCHO_HORAS = 1000 * 60 * 60 * 8;
 if (sesion && Date.now() - sesion.hora > OCHO_HORAS) {
     localStorage.removeItem("sesionActiva");
     sessionStorage.removeItem("sesionActiva");
-    window.location.href = "LandingPage/login.html";
+    window.location.href = "/login";
 }
 
 // ==================== CERRAR SESIÓN ====================
@@ -25,7 +25,7 @@ if (btnCerrar) {
         e.preventDefault();
         localStorage.removeItem("sesionActiva");
         sessionStorage.removeItem("sesionActiva");
-        window.location.href = "LandingPage/login.html";
+        window.location.href = "/login";
     });
 }
 
