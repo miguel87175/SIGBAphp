@@ -250,7 +250,7 @@ function inicializarPanelAprendiz() {
                 <h5>${ev.titulo}</h5>
                 <p><strong>Fecha:</strong> ${ev.fecha}</p>
                 <p>${ev.descripcion}</p>
-                <button class="btn-evento">${ev.accion}</button>
+                <a href="/Formulario" class="btn-evento" style="display:inline-block; text-align:center; text-decoration:none; padding: 8px 15px; background: #00843d; color: white; border-radius: 4px;">${ev.accion}</a>
             `;
         }
 

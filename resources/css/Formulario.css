@@ -1,0 +1,275 @@
+/* CONFIGURACIÓN GENERAL */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f3f6f3;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ENCABEZADO */
+
+.encabezado {
+    background: #00843d;
+    color: white;
+    padding: 25px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo h1 {
+    font-size: 35px;
+}
+
+.logo span {
+    font-size: 11px;
+}
+
+.titulo-header {
+    text-align: right;
+}
+
+.titulo-header h2 {
+    font-size: 24px;
+}
+
+.titulo-header p {
+    font-size: 13px;
+}
+
+/* CONTENEDOR */
+
+.contenedor {
+    width: 90%;
+    max-width: 950px;
+    margin: 35px auto;
+}
+
+/* INTRODUCCIÓN */
+
+.introduccion {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+}
+
+.introduccion h2 {
+    color: #00843d;
+    margin-bottom: 12px;
+}
+
+.aviso {
+    background: #edf7ef;
+    border-left: 4px solid #00843d;
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+/* SECCIONES */
+
+.seccion {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 22px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+}
+
+.seccion h3 {
+    color: #00843d;
+    font-size: 20px;
+    margin-bottom: 22px;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 12px;
+}
+
+/* CAMPOS */
+
+.grupo-campos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.campo label {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    border-color: #00843d;
+    box-shadow: 0 0 0 3px rgba(0,132,61,0.10);
+}
+
+.campo textarea {
+    resize: vertical;
+}
+
+/* OPCIONES DE APOYO */
+
+.descripcion {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.opciones {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.opcion {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    border: 1px solid #ddd;
+    padding: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.opcion:hover {
+    border-color: #00843d;
+    background: #f5faf6;
+}
+
+.opcion input {
+    margin-top: 5px;
+    accent-color: #00843d;
+}
+
+.opcion strong {
+    display: block;
+}
+
+.opcion small {
+    display: block;
+    color: #777;
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+/* DECLARACIÓN */
+
+.check {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.check input {
+    margin-top: 5px;
+    accent-color: #00843d;
+}
+
+/* BOTONES */
+
+.botones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.botones button {
+    border: none;
+    padding: 13px 24px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-limpiar {
+    background: #e5e5e5;
+    color: #444;
+}
+
+.btn-enviar {
+    background: #00843d;
+    color: white;
+}
+
+.btn-enviar:hover {
+    background: #006b31;
+}
+
+/* PIE DE PÁGINA */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #777;
+    font-size: 14px;
+}
+
+/* DISEÑO RESPONSIVE */
+
+@media (max-width: 650px) {
+
+    .encabezado {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .titulo-header {
+        text-align: center;
+    }
+
+    .grupo-campos,
+    .opciones {
+        grid-template-columns: 1fr;
+    }
+
+    .botones {
+        flex-direction: column;
+    }
+
+    .botones button {
+        width: 100%;
+    }
+
+    .contenedor {
+        width: 94%;
+    }
+
+    .seccion,
+    .introduccion {
+        padding: 20px;
+    }
+}

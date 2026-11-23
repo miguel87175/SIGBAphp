@@ -31,6 +31,10 @@ Route::get('/panel-administrador', function () {
     return view('dashboard');
 })->name('panel-administrador');
 
+Route::get('/Formulario', function () {
+    return view('formulario');
+})->name('formulario');
+
 Route::get('/personas', [PersonaController::class, 'mostrar']);
 
 Route::view('/aprendices/crear', 'aprendices.formulario');
