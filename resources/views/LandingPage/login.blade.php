@@ -1,85 +1,107 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Inicio de sesión del sistema de autenticación">
-    <title>Iniciar Sesión</title>
-    @vite(['resources/css/LandingPage/login.css', 'resources/js/LandingPage/login.js'])
-</head>
+    <title>Bienestar al Aprendiz - SENA</title>
+    
+    <link href="    " rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="inisio.css">
+</head> 
+<body>
+    <div class="esquina-verde-izquierda-grande"></div>
+    <div class="esquina-verde-izquierda-pequeña"></div>
 
-<body style="background-image: url('{{ asset('img/FotoCSF.jpg') }}'); ...">
+    <div class="esquina-verde-derecha-grande"></div>
+    <div class="esquina-verde-derecha-pequeña"></div>
 
-    <main class="login-container">
 
-        <form class="form" id="loginForm" action="{{ route('login') }}" method="post">
+    <div class="login-container">
+        <div class="login-header">
+            <div class="logo-sena">
+                <img src="../IMG/logo-sena.png" alt="Logo-SENA" class="img-logo">
+            </div>
+            <div class="separator"></div>
+            <div class="header-text">
+                <h1>Bienestar<br>al Aprendiz</h1>
+            </div>
+        </div>
+        <p class="subtitle">Plataforma de servicios y acompañamiento al aprendiz</p>
+        <div class="header-line"></div>
 
+        <form class="form" id="loginForm" novalidate>
             <h2>Iniciar Sesión</h2>
+            <p class="texto-info">Selecciona el tipo de usuario:</p>
 
-            <fieldset class="grupo-rol">
-                <legend class="subtitulo">Selecciona el tipo de usuario:</legend>
-                <div class="roles">
-                    <label class="opcion">
-                        <input type="radio" name="tipoUsuario" value="Aprendiz" checked required>
-                        <span class="check" aria-hidden="true"></span>
-                        <span class="texto">Aprendiz</span>
-                    </label>
-                    <label class="opcion">
-                        <input type="radio" name="tipoUsuario" value="Profesional" required>
-                        <span class="check" aria-hidden="true"></span>
-                        <span class="texto">Profesional</span>
-                    </label>
-                </div>
-            </fieldset>
-
-            <div class="input-group">
-                <label for="loginUsuario">Nombre o correo</label>
-                <input
-                    type="text"
-                    id="loginUsuario"
-                    name="loginUsuario"
-                    placeholder="Ingresa tu nombre o correo"
-                    autocomplete="username"
-                    minlength="3"
-                    maxlength="50"
-                    title="Ingresa tu nombre de usuario (mínimo 3 caracteres) o tu correo electrónico"
-                    required>
-                <small class="error-campo" id="errorUsuario" aria-live="polite"></small>
+            <div class="user-type-selector">
+                <button type="button" class="type-btn active">
+                    <i class="fa-solid fa-graduation-cap"></i> Aprendiz
+                    <i class="fa-solid fa-circle-check check-icon"></i>
+                </button>
+                <button type="button" class="type-btn">
+                    <i class="fa-solid fa-gear"></i> Administrativo
+                </button>
             </div>
 
             <div class="input-group">
-                <label for="loginPassword">Contraseña</label>
-                <input
-                    type="password"
-                    id="loginPassword"
-                    name="loginPassword"
-                    placeholder="Ingresa tu contraseña"
-                    autocomplete="current-password"
-                    minlength="6"
-                    maxlength="100"
-                    title="La contraseña debe tener al menos 6 caracteres"
-                    required>
-                <small class="error-campo" id="errorPassword" aria-live="polite"></small>
+                <div class="input-wrapper">
+                    <i class="fa-regular fa-envelope icon-left"></i>
+                    <input
+                        type="text"
+                        id="loginUsuario"
+                        name="loginUsuario"
+                        placeholder="Correo electrónico"
+                        autocomplete="username"
+                        maxlength="50"
+                        required
+                    >
+                </div>
+                <small class="error-campo" id="errorUsuario"></small>
+            </div>
+
+            <div class="input-group">
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-lock icon-left"></i>
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        name="loginPassword"
+                        placeholder="Contraseña"
+                        autocomplete="current-password"
+                        minlength="6"
+                        maxlength="100"
+                        required
+                    >
+
+                    <i class="fa-regular fa-eye-slash icon-right" id="togglePassword"></i>
+                </div>
+                <small class="error-campo" id="errorPassword"></small>
             </div>
 
             <div class="opciones">
                 <label class="recordarme">
                     <input type="checkbox" id="recordarme" name="recordarme"> Recordarme
                 </label>
-                <a href="{{ route('olvido-contraseña') }}">¿Olvidaste tu contraseña?</a>
+                <!-- NOTA: Cambia el '#' por tu ruta de Laravel, ej: {{ route('olvido') }} -->
+                <a href="#" id="irAOlvido">¿Olvidaste tu contraseña?</a>
             </div>
 
-            <button type="submit" class="btn">Entrar</button>
+            <button type="submit" class="btn">
+                Entrar <i class="fa-solid fa-arrow-right"></i>
+            </button>
 
-            <p class="mensaje" id="mensajeLogin" role="status" aria-live="polite"></p>
+            <p class="mensaje" id="mensajeLogin"></p>
 
             <p class="cambio-form">
-                ¿No tienes cuenta?
-                <a href="{{ route('registro') }}">Regístrate aquí</a>
+                <!-- NOTA: Cambia el '#' por tu ruta de Laravel, ej: {{ route('registro') }} -->
+                ¿No tienes cuenta? <a href="#" id="irARegistro">Regístrate aquí</a>
             </p>
         </form>
-    </main>
-</body>
 
+    </div>
+    
+    <script src="inisio.js"></script>
+</body>
 </html>

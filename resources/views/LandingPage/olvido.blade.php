@@ -1,80 +1,63 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recuperar Contraseña</title>
-    @vite(['resources/css/LandingPage/olvido.css', 'resources/js/LandingPage/olvido.js'])
-</head>
+    <title>Bienestar al Aprendiz - SENA</title>
+    
+    <link href="    " rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="inisio.css">
+</head> 
+<body>
+    <div class="esquina-verde-izquierda-grande"></div>
+    <div class="esquina-verde-izquierda-pequeña"></div>
 
-<body style="background-image: url('{{ asset('img/FotoCSF.jpg') }}'); ...">
+    <div class="esquina-verde-derecha-grande"></div>
+    <div class="esquina-verde-derecha-pequeña"></div>
+
 
     <div class="login-container">
+        <div class="login-header">
+            <div class="logo-sena">
+                <img src="../IMG/logo-sena.png" alt="Logo-SENA" class="img-logo">
+            </div>
+            <div class="separator"></div>
+            <div class="header-text">
+                <h1>Bienestar<br>al Aprendiz</h1>
+            </div>
+        </div>
+        <p class="subtitle">Plataforma de servicios y acompañamiento al aprendiz</p>
+        <div class="header-line"></div>
 
-        <!-- ============ FORMULARIO DE OLVIDÉ CONTRASEÑA ============ -->
         <form class="form" id="olvidoForm" novalidate>
             <h2>Recuperar Contraseña</h2>
-
+            
             <p class="texto-info">
                 Ingresa tu correo electrónico y te enviaremos un código para restablecer tu contraseña.
             </p>
-
+            
             <div class="input-group">
-                <label for="olvidoEmail">Correo electrónico</label>
-                <input type="email" id="olvidoEmail" name="olvidoEmail" placeholder="tucorreo@ejemplo.com"
-                    autocomplete="email" maxlength="100" required>
+                <div class="input-wrapper">
+                    <i class="fa-regular fa-envelope icon-left"></i>
+                    <input type="email" id="olvidoEmail" name="olvidoEmail" placeholder="tucorreo@ejemplo.com" autocomplete="email" maxlength="100" required>
+                </div>
                 <small class="error-campo" id="errorOlvidoEmail"></small>
             </div>
-
-            <button type="submit" class="btn">Enviar código</button>
-
+            
+            <button type="submit" class="btn">Enviar código <i class="fa-solid fa-paper-plane"></i></button>
+            
             <p class="mensaje" id="mensajeOlvido"></p>
-
+            
             <p class="cambio-form">
-                <a href="{{ route('login') }}">← Volver al inicio de sesión</a>
-            </p>
-        </form>
-
-        <!-- ============ FORMULARIO DE NUEVA CONTRASEÑA ============ -->
-        <form class="form oculto" id="resetForm" novalidate>
-            <h2>Nueva Contraseña</h2>
-
-            <p class="texto-info">
-                Ingresa el código que recibiste y tu nueva contraseña.
-            </p>
-
-            <div class="input-group">
-                <label for="resetCodigo">Código de verificación</label>
-                <input type="text" id="resetCodigo" name="resetCodigo" placeholder="Ej: 123456" inputmode="numeric"
-                    pattern="[0-9]{6}" maxlength="6" required>
-                <small class="error-campo" id="errorResetCodigo"></small>
-            </div>
-
-            <div class="input-group">
-                <label for="resetPassword">Nueva contraseña</label>
-                <input type="password" id="resetPassword" name="resetPassword" placeholder="Nueva contraseña"
-                    autocomplete="new-password" minlength="6" maxlength="100" required>
-                <small class="error-campo" id="errorResetPassword"></small>
-            </div>
-
-            <div class="input-group">
-                <label for="resetPassword2">Confirmar contraseña</label>
-                <input type="password" id="resetPassword2" name="resetPassword2" placeholder="Repite la contraseña"
-                    autocomplete="new-password" minlength="6" maxlength="100" required>
-                <small class="error-campo" id="errorResetPassword2"></small>
-            </div>
-
-            <button type="submit" class="btn">Cambiar contraseña</button>
-
-            <p class="mensaje" id="mensajeReset"></p>
-
-            <p class="cambio-form">
-                <a href="{{ route('login') }}">← Volver al inicio de sesión</a>
+                <!-- NOTA: Cambia el '#' por tu ruta de Laravel, ej: {{ route('login') }} -->
+                <a href="#" id="volverALogin2">← Volver al inicio de sesión</a>
             </p>
         </form>
 
     </div>
+    
+    <script src="inisio.js"></script>
 </body>
-
 </html>

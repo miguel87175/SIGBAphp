@@ -23,9 +23,9 @@ if (usuarios.length === 0) {
 // ==================== REFERENCIAS AL DOM ====================
 const loginForm    = document.getElementById("loginForm");
 const mensajeLogin = document.getElementById("mensajeLogin");
-const inputUsuario  = document.getElementById("loginUsuario");
+const inputUsuario = document.getElementById("loginUsuario");
 const inputPassword = document.getElementById("loginPassword");
-const errorUsuario  = document.getElementById("errorUsuario");
+const errorUsuario = document.getElementById("errorUsuario");
 const errorPassword = document.getElementById("errorPassword");
 
 // ==================== REGEX ====================
@@ -81,19 +81,15 @@ loginForm.addEventListener("submit", (e) => {
     const password = inputPassword.value;
     const recordar = document.getElementById("recordarme").checked;
 
-    const rolSeleccionado = document.querySelector('input[name="tipoUsuario"]:checked');
-    const rol = rolSeleccionado ? rolSeleccionado.value : "";
+    // Obtener el rol seleccionado desde los botones visuales
+    const botonActivo = document.querySelector('.type-btn.active');
+    const rol = botonActivo ? botonActivo.getAttribute('data-rol') : "Aprendiz";
 
     const msgUsuario  = validarUsuario(usuario);
     const msgPassword = validarPassword(password);
 
     pintarError(inputUsuario, errorUsuario, msgUsuario);
     pintarError(inputPassword, errorPassword, msgPassword);
-
-    if (!rol) {
-        mostrarMensaje(mensajeLogin, "Selecciona el tipo de usuario", "error");
-        return;
-    }
 
     if (msgUsuario || msgPassword) {
         mostrarMensaje(mensajeLogin, "Revisa los campos marcados en rojo", "error");
@@ -129,17 +125,13 @@ loginForm.addEventListener("submit", (e) => {
             }
 
             setTimeout(() => {
-    // El admin va al dashboard, los demás a la página normal
-    if (encontrado.usuario === "admin" || encontrado.email === "admin@test.com") {
-        window.location.href = "/panel-administrador";
-    } else {
-        if (sesion.usuario === "admin" || sesion.email === "admin@test.com") {
-    window.location.href = "/panel-administrador";
-} else {
-    window.location.href = "/Pagina-principal";
-}
-    }
-}, 900);
+                // Redirección (ajusta esto a tus rutas reales)
+                if (encontrado.usuario === "admin" || encontrado.email === "admin@test.com") {
+                    window.location.href = "/panel-administrador";
+                } else {
+                    window.location.href = "/Pagina-principal";
+                }
+            }, 900);
 
         } else {
             mostrarMensaje(mensajeLogin, "Usuario o contraseña incorrectos", "error");
@@ -150,18 +142,38 @@ loginForm.addEventListener("submit", (e) => {
     }, 700);
 });
 
-// ==================== SESIÓN AL RECARGAR ====================
-window.addEventListener("DOMContentLoaded", () => {
-    const sesion = JSON.parse(localStorage.getItem("sesionActiva"))
-                || JSON.parse(sessionStorage.getItem("sesionActiva"));
+// ==================== LÓGICA DE BOTONES Y OJITO ====================
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. Botones Aprendiz / Administrativo
+    const botonesTipo = document.querySelectorAll('.type-btn');
+    
+    botonesTipo.forEach(boton => {
+        boton.addEventListener('click', () => {
+            botonesTipo.forEach(b => {
+                b.classList.remove('active');
+                const check = b.querySelector('.check-icon');
+                if (check) check.remove();
+            });
 
-    if (sesion) {
-        const OCHO_HORAS = 1000 * 60 * 60 * 8;
-        if (Date.now() - sesion.hora > OCHO_HORAS) {
-            localStorage.removeItem("sesionActiva");
-            sessionStorage.removeItem("sesionActiva");
-            return;
-        }
-        window.location.href = "/Pagina-principal";
+            boton.classList.add('active');
+
+            const iconoCheck = document.createElement('i');
+            iconoCheck.className = 'fa-solid fa-circle-check check-icon';
+            boton.appendChild(iconoCheck);
+        });
+    });
+
+    // 2. Ojo de la contraseña
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('loginPassword');
+
+    if (togglePassword && passwordInput) {
+        togglePassword.addEventListener('click', () => {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            
+            togglePassword.classList.toggle('fa-eye');
+            togglePassword.classList.toggle('fa-eye-slash');
+        });
     }
 });
