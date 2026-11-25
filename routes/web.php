@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use App\Models\Aprendiz;
 
 Route::get('/', function () {
     return view('pagina'); // O la vista que corresponda
@@ -31,9 +33,17 @@ Route::get('/panel-administrador', function () {
     return view('dashboard');
 })->name('panel-administrador');
 
-Route::get('/Formulario', function () {
-    return view('formulario');
-})->name('formulario');
+Route::get('/Formulario-Alimentario', function () {
+    return view('FormularioAlimentacion');
+})->name('formulario.alimentario');
+
+Route::get('/Formulario-Monetario', function () {
+    return view('FormularioMonetario');
+})->name('formulario.monetario');
+
+Route::get('/Formulario-Transporte', function () {
+    return view('FormularioTransporte');
+})->name('formulario.transporte');
 
 Route::get('/personas', [PersonaController::class, 'mostrar']);
 
@@ -48,3 +58,27 @@ Route::get('/aprendices/{id}/editar', [PersonaController::class, 'editar'])
 
 Route::put('/aprendices/{id}', [PersonaController::class, 'actualizar'])
     ->whereNumber('id');
+
+Route::post('/registro', function (Request $request) {
+    // 1. Validar (asegúrate de que los campos coincidan con tu formulario)
+    $request->validate([
+        'nombre' => 'required',
+        'apellidos' => 'required',
+        'num_documento' => 'required|unique:aprendiz',
+        'correo' => 'required|email|unique:aprendiz',
+        'password' => 'required|min:6|confirmed',
+    ]);
+
+    // 2. Guardar en la tabla aprendiz
+    Aprendiz::create([
+        'num_documento' => $request->num_documento,
+        'nombre' => $request->nombre,
+        'apellidos' => $request->apellidos,
+        'correo' => $request->correo,
+        'password' => $request->password, // Se encripta solo por el 'casts' que pusimos
+        // ... otros campos como telefono, ficha, etc.
+    ]);
+
+    // 3. Redirigir
+    return redirect('/login')->with('success', '¡Registro exitoso!');
+})->name('registro.guardar');

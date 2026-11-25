@@ -1,4 +1,7 @@
-/* CONFIGURACIÓN GENERAL */
+
+/* =====================================
+   1. CONFIGURACIÓN GENERAL
+===================================== */
 
 * {
     margin: 0;
@@ -8,25 +11,29 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #f3f6f3;
+    background-color: #f2f5f2;
     color: #333;
     line-height: 1.6;
 }
 
-/* ENCABEZADO */
+
+/* =====================================
+   2. ENCABEZADO
+===================================== */
 
 .encabezado {
-    background: #00843d;
+    background-color: #00843d;
     color: white;
     padding: 25px 8%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     gap: 20px;
 }
 
 .logo h1 {
-    font-size: 35px;
+    font-size: 38px;
+    font-weight: bold;
 }
 
 .logo span {
@@ -38,14 +45,18 @@ body {
 }
 
 .titulo-header h2 {
-    font-size: 24px;
+    font-size: 25px;
 }
 
 .titulo-header p {
-    font-size: 13px;
+    font-size: 14px;
+    opacity: 0.9;
 }
 
-/* CONTENEDOR */
+
+/* =====================================
+   3. CONTENEDOR PRINCIPAL
+===================================== */
 
 .contenedor {
     width: 90%;
@@ -53,10 +64,13 @@ body {
     margin: 35px auto;
 }
 
-/* INTRODUCCIÓN */
+
+/* =====================================
+   4. INTRODUCCIÓN
+===================================== */
 
 .introduccion {
-    background: white;
+    background-color: white;
     padding: 30px;
     border-radius: 10px;
     margin-bottom: 25px;
@@ -66,20 +80,28 @@ body {
 .introduccion h2 {
     color: #00843d;
     margin-bottom: 12px;
+    font-size: 25px;
+}
+
+.introduccion p {
+    color: #555;
 }
 
 .aviso {
-    background: #edf7ef;
+    background-color: #edf7ef;
     border-left: 4px solid #00843d;
     padding: 15px;
     margin-top: 20px;
     font-size: 14px;
 }
 
-/* SECCIONES */
+
+/* =====================================
+   5. SECCIONES DEL FORMULARIO
+===================================== */
 
 .seccion {
-    background: white;
+    background-color: white;
     padding: 30px;
     border-radius: 10px;
     margin-bottom: 22px;
@@ -94,7 +116,15 @@ body {
     padding-bottom: 12px;
 }
 
-/* CAMPOS */
+.descripcion {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+
+/* =====================================
+   6. ORGANIZACIÓN DE CAMPOS
+===================================== */
 
 .grupo-campos {
     display: grid;
@@ -112,7 +142,13 @@ body {
 .campo label {
     font-weight: bold;
     font-size: 14px;
+    color: #444;
 }
+
+
+/* =====================================
+   7. INPUTS Y SELECTS
+===================================== */
 
 .campo input,
 .campo select,
@@ -123,7 +159,9 @@ body {
     border-radius: 6px;
     font-family: inherit;
     font-size: 14px;
+    background-color: #fff;
     outline: none;
+    transition: 0.2s;
 }
 
 .campo input:focus,
@@ -137,12 +175,10 @@ body {
     resize: vertical;
 }
 
-/* OPCIONES DE APOYO */
 
-.descripcion {
-    color: #666;
-    margin-bottom: 20px;
-}
+/* =====================================
+   8. OPCIONES DE APOYO
+===================================== */
 
 .opciones {
     display: grid;
@@ -163,7 +199,7 @@ body {
 
 .opcion:hover {
     border-color: #00843d;
-    background: #f5faf6;
+    background-color: #f5faf6;
 }
 
 .opcion input {
@@ -173,6 +209,7 @@ body {
 
 .opcion strong {
     display: block;
+    color: #333;
 }
 
 .opcion small {
@@ -182,13 +219,21 @@ body {
     font-size: 12px;
 }
 
-/* DECLARACIÓN */
+
+/* =====================================
+   9. DECLARACIÓN
+===================================== */
+
+.autorizacion {
+    background-color: #fafffa;
+}
 
 .check {
     display: flex;
     align-items: flex-start;
     gap: 12px;
     font-size: 14px;
+    color: #555;
     cursor: pointer;
 }
 
@@ -197,7 +242,10 @@ body {
     accent-color: #00843d;
 }
 
-/* BOTONES */
+
+/* =====================================
+   10. BOTONES
+===================================== */
 
 .botones {
     display: flex;
@@ -213,23 +261,31 @@ body {
     font-size: 14px;
     font-weight: bold;
     cursor: pointer;
+    transition: 0.2s;
 }
 
 .btn-limpiar {
-    background: #e5e5e5;
+    background-color: #e5e5e5;
     color: #444;
 }
 
+.btn-limpiar:hover {
+    background-color: #d5d5d5;
+}
+
 .btn-enviar {
-    background: #00843d;
+    background-color: #00843d;
     color: white;
 }
 
 .btn-enviar:hover {
-    background: #006b31;
+    background-color: #006b31;
 }
 
-/* PIE DE PÁGINA */
+
+/* =====================================
+   11. PIE DE PÁGINA
+===================================== */
 
 footer {
     text-align: center;
@@ -238,7 +294,14 @@ footer {
     font-size: 14px;
 }
 
-/* DISEÑO RESPONSIVE */
+footer small {
+    font-size: 12px;
+}
+
+
+/* =====================================
+   12. DISEÑO RESPONSIVE
+===================================== */
 
 @media (max-width: 650px) {
 
@@ -251,7 +314,10 @@ footer {
         text-align: center;
     }
 
-    .grupo-campos,
+    .grupo-campos {
+        grid-template-columns: 1fr;
+    }
+
     .opciones {
         grid-template-columns: 1fr;
     }
@@ -272,4 +338,19 @@ footer {
     .introduccion {
         padding: 20px;
     }
+}
+/* CAMPOS CON ERRORES */
+
+.campo-error {
+    border: 1px solid #dc3545 !important;
+    background-color: #fff8f8;
+}
+
+/* MENSAJES DE ERROR */
+
+.mensaje-error {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 4px;
+    display: block;
 }

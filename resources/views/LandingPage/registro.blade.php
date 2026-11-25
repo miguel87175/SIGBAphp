@@ -13,7 +13,8 @@
 
     <main class="login-container">
 
-        <form class="form" id="registroForm" action="login.html" method="post" novalidate>
+        <form class="form" id="registroForm" action="{{ route('registro.guardar') }}" method="POST" novalidate>
+    @csrf
 
             <h2>Crear Cuenta</h2>
 
@@ -181,8 +182,6 @@
             </p>
         </form>
     </main>
-
-    <script src="registro.js"></script>
     
     <div class="modal-overlay" id="modalOverlay" hidden>
     <div class="modal-contenido" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">

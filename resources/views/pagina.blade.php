@@ -32,9 +32,15 @@
     <!-- ==================== CARRUSEL (solo aprendiz) ==================== -->
     <section class="carrusel-fullwidth solo-aprendiz" id="carruselSection">
         <div class="carrusel" id="carrusel">
-            <div class="carrusel-item"><img src="{{ asset('img/foto_1.jpg') }}" alt="Imagen 1"></div>
-            <div class="carrusel-item"><img src="{{ asset('img/foto_2.jpg') }}" alt="Imagen 2"></div>
-            <div class="carrusel-item"><img src="{{ asset('img/foto_3.png') }}" alt="Imagen 3"></div>
+            <a href="{{ route('formulario.alimentario') }}">
+                <div class="carrusel-item"><img src="{{ asset('img/foto_1.jpg') }}" alt="Imagen 1"></div>
+            </a>
+            <a href="{{ route('formulario.transporte') }}">
+                <div class="carrusel-item"><img src="{{ asset('img/foto_2.jpg') }}" alt="Imagen 2"></div>
+            </a>
+            <a href="{{ route('formulario.monetario') }}">
+                <div class="carrusel-item"><img src="{{ asset('img/foto_3.png') }}" alt="Imagen 3"></div>
+            </a>
         </div>
         <button class="btn-carrusel atras" id="atras">&#10094;</button>
         <button class="btn-carrusel adelante" id="adelante">&#10095;</button>
